@@ -1,0 +1,31 @@
+def plot_closing_prices(df):
+    plt.figure(figsize=(15, 6))
+    plt.plot(df.index, df['Close'], label='Closing Price', color='blue')
+    plt.title('Natural Gas Futures - Closing Prices')
+    plt.xlabel('Date')
+    plt.ylabel('Price (USD)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+def plot_daily_returns(df):
+    daily_returns = df['Close'].pct_change()
+    plt.figure(figsize=(15, 6))
+    plt.plot(df.index, daily_returns, label='Daily Returns', color='orange')
+    plt.title('Natural Gas Futures - Daily Returns')
+    plt.xlabel('Date')
+    plt.ylabel('Daily Return (%)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+def plot_actual_vs_predicted(y_test, y_pred):
+    plt.figure(figsize=(15, 6))
+    plt.plot(y_test.index, y_test.values, label='Actual Price', color='green', alpha=0.8)
+    plt.plot(y_test.index, y_pred, label='Predicted Price', color='red', alpha=0.8)
+    plt.title('Natural Gas Futures - Actual vs Predicted Prices')
+    plt.xlabel('Date')
+    plt.ylabel('Price (USD)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
